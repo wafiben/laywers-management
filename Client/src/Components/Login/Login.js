@@ -3,16 +3,20 @@ import "./Login.css";
 import { Button } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { useNavigate } from "react-router-dom";
+import {SignIn} from "../../Redux/Actions/authAction";
+import {useDispatch} from "react-redux";
 function Login() {
+  const dispatch=useDispatch();
   const navigate = useNavigate();
   const handleNavigateContact = () => {
     navigate("/contact-us");
   };
+
   return (
     <div className="body-container">
       <div className="container" id="container">
         <div className="form-container sign-up-container">
-          <form className="form" action="#">
+          <form className="form" >
             <h1 className="title">Bienvenue</h1>
             <input className="input" type="text" placeholder="Nom" />
             <input className="input" type="email" placeholder="Email" />

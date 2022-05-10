@@ -1,7 +1,12 @@
 const { body, validationResult } = require("express-validator");
 
 const signupValidation = [
-  body("name", "you must type your name").not().isEmpty(),
+  body("firstName", "you must type your first name").not().isEmpty(),
+  body("lastName", "you must type your last name").not().isEmpty(),
+  body("phone", "the phone number must be 8 number").isLength({
+    min: 8,
+    max: 8,
+  }),
   body("email", "error in format email").isEmail(),
   body("password", "the passsword must be 6 caracter at least").isLength({
     min: 6,

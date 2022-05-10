@@ -11,17 +11,26 @@ const Signup = async (req, res) => {
     }
     const hashedPassword = await bcrypt.hash(userInfo.password, 10);
     const user = new User({
-      username: userInfo.username,
+      firstName: userInfo.firstName,
+      lastName: userInfo.lastName,
       email: userInfo.email,
+      phone: userInfo.phone,
       password: hashedPassword,
     });
     await user.save();
     const token = jwt.sign(
-      { username: user.username, email: user.email, id: user._id },
+      {
+        firtsName: user.firtsName,
+        lastName: user.lastName,
+        phone: user.phone,
+        email: user.email,
+        id: user._id,
+      },
       process.env.KEY
     );
     res.status(200).json({ user, token });
   } catch (error) {
+    console.log(error)
     res.status(400).json({ errors: [{ msg: "register failed" }] });
   }
 };
@@ -35,11 +44,17 @@ const SignIn = async (req, res) => {
         .status(401)
         .json({ errors: [{ msg: "you must register before" }] });
     }
-    const result = await bcrypt.compare(userInfo.password,user.password);
-    if (result==true) {
+    const result = await bcrypt.compare(userInfo.password, user.password);
+    if (result == true) {
       console.log(result);
       const token = jwt.sign(
-        { username: user.username, email: user.email, id: user._id },
+        {
+          firstName: user.firstName,
+          lastName: user.lastName,
+          phone: user.phone,
+          email: user.email,
+          id: user._id,
+        },
         process.env.KEY
       );
       res.status(200).json({ user, token });

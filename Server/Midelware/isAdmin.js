@@ -6,6 +6,6 @@ const isAdmin = async (request, response, next) => {
         msg: "you are not allowed to this service,only admin have the right",
       });
     }
-  next()
+  next();
   };
   module.exports = isAdmin;
