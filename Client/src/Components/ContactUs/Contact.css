@@ -1,0 +1,15 @@
+@keyframes conatcSlidein {
+  from {
+    margin-right: 10%;
+    /* width: 150%; */
+  }
+
+  to {
+    margin-left: 20%;
+    /* width: 150%; */
+  }
+}
+.contact {
+  animation-name: conatcSlidein;
+  animation-duration: 4s;
+}

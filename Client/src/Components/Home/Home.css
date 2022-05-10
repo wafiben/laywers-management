@@ -1,0 +1,22 @@
+@keyframes slidein {
+  from {
+    margin-left: 150%;
+    width: 150%;
+  }
+
+  to {
+    margin-left: 10%;
+    width: 150%;
+  }
+}
+
+.home {
+  display: flex;
+  margin-top: -200px;
+ 
+}
+.box {
+    animation-name: slidein;
+    animation-duration: 3s;
+}
+
