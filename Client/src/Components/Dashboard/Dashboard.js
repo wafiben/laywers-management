@@ -5,12 +5,14 @@ import SideBar from "../SideBar/SideBar";
 function Dashboard() {
   return (
     <div className="dasboard">
-      <div style={{ marginTop: "-190px"}}>
+    {/*   <div style={{ marginTop: "-190px"}}>
         <SideBar />
       </div>
       <div style={{margin:"auto" }}>
       <Lawyer/>
-      </div>
+      </div> */}
+      <h1>hello</h1>
+      <h1>dashboard admin</h1>
     </div>
   );
 }

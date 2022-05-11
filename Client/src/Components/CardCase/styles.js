@@ -5,9 +5,6 @@ const useStyles = makeStyles({
     height: "200px", 
   
     top:"0",
-   
-
-    
   },
   border: {
     border: "solid",

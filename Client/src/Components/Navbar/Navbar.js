@@ -1,18 +1,40 @@
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import { FcHome } from "react-icons/fc";
-import { Avatar } from "primereact/avatar";
+import { Avatar } from "@material-ui/core";
+import toast, { Toaster } from "react-hot-toast";
+import { logOut } from "../../Redux/Actions/authAction";
+
+import { useSelector, useDispatch } from "react-redux";
 
 function Navbar() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.AuthReducer);
+  useEffect(() => {
+    if (user) {
+      toast(`Hello ${user.firstName}  ${user.lastName} !`, {
+        icon: "👏",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
+  }, [user]);
+
   const handleClick = () => {
     navigate("/auth");
   };
-  const handleHomeNavigate=()=>{
+  const handleHomeNavigate = () => {
     navigate("/");
-  }
+  };
+  const handleLogout = () => {
+    dispatch(logOut(navigate));
+  };
   const buttonHome = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -27,18 +49,39 @@ function Navbar() {
   );
   return (
     <div className="nav-header">
-      <Button style={{backgroundColor:"transparent",border:"2px solid gray" ,color:"gray" ,width:"88px" ,height:"40px"}} onClick={handleHomeNavigate} >{buttonHome}</Button>
-      <Button variant="contained" onClick={handleClick}>
-        Sign In
+      <Toaster position="top-center" reverseOrder={false} />
+      <Button
+        style={{
+          backgroundColor: "transparent",
+          border: "2px solid gray",
+          color: "gray",
+          width: "88px",
+          height: "40px",
+        }}
+        onClick={handleHomeNavigate}
+      >
+        {buttonHome}
       </Button>
-      {/*  <Link to="/profile">
-        {user.image ? (
-          <img src={user.image} />
-        ) : (
-          <Avatar name={user.name} size="40" className="avatar" />
-        )}
-      </Link> */}
-      {/* <img  src={law}/> */}
+
+      {user ? (
+        <>
+          <Avatar
+            name={user.firstName}
+            size="40"
+            className="avatar"
+            style={{ backgroundColor: "purple" }}
+          >
+            {user && user.firstName.charAt(0)}
+          </Avatar>
+          <Button variant="outlined" color="error" onClick={handleLogout}>
+            Logout
+          </Button>
+        </>
+      ) : (
+        <Button variant="contained" onClick={handleClick}>
+          Sign In
+        </Button>
+      )}
     </div>
   );
 }

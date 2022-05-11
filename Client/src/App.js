@@ -16,10 +16,11 @@ function App() {
           <div>
             <Routes>
               <Route path="/" element={<Home />} />
+             <Route path="*" element={<NotFound />} />
               <Route path="/auth" element={<Login />} />
               <Route path="/admin-dashbaord" element={<Dashboard />} />
               <Route path="/contact-us" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
+            
             </Routes>
           </div>
         </div>
