@@ -2,13 +2,8 @@ const express=require('express');
 const isAdmin=require('../Midelware/isAdmin');
 const router=express.Router();
 const {validation,signupValidation,loginValudation}=require('../Midelware/validation')
-const {SignIn,Signup}=require('../Controllers/authController')
+const {SignIn}=require('../Controllers/authController')
 const isAuth=require('../Midelware/Auth')
-router.post('/sign-in',loginValudation,validation, SignIn)
-router.post('/sign-up',signupValidation,validation,isAuth,isAdmin,Signup)
-  //router 
-  router.get('/me',isAuth,(req,res)=>{
-    res.send({ user: req.user });
-  })
+router.post('/sign-in',loginValudation,validation, SignIn);
  
 module.exports =router

@@ -23,7 +23,6 @@ function SideBar() {
       <SideBarLink Icon={BookmarkBorderIcon} text="Loyers" />
       <SideBarLink Icon={NotificationsNoneIcon} text="Notifications" />
       <SideBarLink Icon={PermIdentityIcon} text="Profile" />
-      
     </div>
   );
 }

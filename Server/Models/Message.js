@@ -1,18 +1,10 @@
 const mongoose = require("mongoose");
-const userSchema = mongoose.Schema({
-  role: {
-    type: Number,
-    default: 0,
-  },
+const messageSchema = mongoose.Schema({
   firstName: {
     type: String,
     required: true,
   },
   lastName: {
-    type: String,  
-    required: true,
-  },
-  phone: {
     type: String,
     required: true,
   },
@@ -20,10 +12,13 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-
-  password: {
+  message: {
+    type: String,
+    required: true,
+  },
+  contactProof: {
     type: String,
     required: true,
   },
 });
-module.exports = mongoose.model("user", userSchema);
+module.exports = mongoose.model("message", messageSchema);

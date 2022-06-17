@@ -3,10 +3,12 @@ const app = express();
 const cors = require("cors");
 const connect = require("./config/ConnectDb");
 const authRoute = require("./Routes/authRoute");
+const adminRoute = require("./Routes/AdminRoute.js");
 require("dotenv").config({ path: "./config/.env" });
 //run the server
-app.listen(process.env.PORT, () => {
-  console.log(`server is running on port ${process.env.PORT}`);
+const PORT = 10000 || process.env.PORT;
+app.listen(PORT, () => {
+  console.log(`server is running on port ${PORT}`);
 });
 //connect to database
 connect();
@@ -29,3 +31,4 @@ app.use((req, res, next) => {
   next();
 });
 app.use("/auth", authRoute);
+app.use("/admin", adminRoute);

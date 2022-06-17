@@ -15,6 +15,10 @@ const caseSchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
+  },
+  number:{
+    type:String,
+    required: true,
   }
 });
 module.exports = mongoose.model("case", caseSchema);

@@ -1,10 +1,11 @@
+import { darken } from "@material-ui/core";
 import axios from "axios";
 import { SIGN_IN, SIGN_UP, USER_FAIL, LOG_OUT } from "./../Type";
-export const login = () => {};
+
 export const signIn = (user, navigate) => async (dispatch) => {
   try {
     const response = await axios.post(
-      "http://localhost:2000/auth/sign-in",
+      "http://localhost:10000/auth/sign-in",
       user
     );
     dispatch({ type: SIGN_IN, payload: response.data });

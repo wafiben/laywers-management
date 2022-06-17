@@ -19,11 +19,9 @@ function Login() {
   };
 
   return (
-    <div className="body-container" >
+    <div className="body-container">
       <div className="container" id="container">
-        <div className="form-container sign-up-container">
-          
-        </div>
+        <div className="form-container sign-up-container"></div>
         <div className="form-container sign-in-container">
           <form className="form" onSubmit={onSubmit}>
             <h1 className="title">Welcome</h1>
@@ -43,7 +41,9 @@ function Login() {
               name="password"
             />
 
-            <button className="button button-connect" type="submit">Connect</button>
+            <button className="button button-connect" type="submit">
+              Connect
+            </button>
           </form>
         </div>
         <div className="overlay-container">
