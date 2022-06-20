@@ -1,0 +1,34 @@
+.header {
+  background-color: #303841;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.Header{
+ color:white;
+}
+.element-content {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
+.header-img {
+  background-image: url("https://thumbs.dreamstime.com/b/male-lawyer-judge-working-contract-papers-law-books-wooden-gavel-table-courtroom-justice-lawyers-law-firm-law-134838999.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width:100%;
+  height:400px;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  font-size:30px;
+  padding-top:100px;
+}
+
+.element-hover:hover{
+  cursor:pointer;
+}

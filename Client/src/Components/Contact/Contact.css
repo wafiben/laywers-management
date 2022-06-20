@@ -1,0 +1,25 @@
+.contact-parent {
+  display: flex;
+  justify-content: space-around;
+  background-color: gray;
+  align-items: center;
+  
+}
+.contact-section{
+    margin-top:100px
+}
+.contact-email {
+  display: flex;
+  flex-direction: column;
+}
+.img-mail {
+  border-radius: 75%;
+  margin-right: 10px;
+}
+.mail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  
+}

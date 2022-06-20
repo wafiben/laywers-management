@@ -1,31 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
-import Contact from "./Components/ContactUs/Contact";
-import Dashboard from "./Components/Dashboard/Dashboard";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
-import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer";
-import Login from "./Components/Login/Login";
-import NotFound from "./Components/NotFound/NotFound";
+import SignIn from "./Components/SignIn/SignIn";
+import Contact from "./Components/Contact/Contact";
+import React, { useRef } from 'react'
 function App() {
+ 
   return (
     <BrowserRouter>
-      <div className="App">
-        <div className="content">
-          <Navbar />
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-             <Route path="*" element={<NotFound />} />
-              <Route path="/auth" element={<Login />} />
-              <Route path="/admin-dashbaord" element={<Dashboard />} />
-              <Route path="/contact-us" element={<Contact />} />
-            
-            </Routes>
-          </div>
-        </div>
-        <Footer />
-      </div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sign-in" element={<SignIn />} />
+      </Routes>
     </BrowserRouter>
   );
 }

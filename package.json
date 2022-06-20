@@ -1,7 +1,7 @@
 {
     "scripts": {
         "server": "cd Server && nodemon index.js",
-        "client": "cd Client && npm start",
+        "client": "cd client && npm start",
         "dev": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test --env =jsdom",
